@@ -7,14 +7,16 @@ The back end is made with Node.js/Express.js, using MongoDB w/ Mongoose, GraphQL
 
 Setup after cloning the repository:
 
-Frontend
+Frontend:
+The front end uses Airbnb linting, refer to the eslint-config-airbnb documentation to set it up: https://www.npmjs.com/package/eslint-config-airbnb
+
 ```
 cd frontend
 npm i
 npm start
 ```
 
-Backend
+Backend:
 ```
 cd backend
 npm i
