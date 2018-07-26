@@ -7,8 +7,6 @@ module.exports = {
   },
   extends: 'airbnb',
   parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-    },
+    ecmaVersion: 6
   },
 };
