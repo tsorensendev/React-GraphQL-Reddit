@@ -5,7 +5,6 @@ const expressGraphQL = require('express-graphql');
 const schema = require('./schema/schema');
 const cors = require('cors');
 
-
 // Express Setup
 // ===============================================
 const app = express();
@@ -19,11 +18,11 @@ app.use(
   expressGraphQL({
     schema,
     graphiql: true,
-  })
+  }),
 );
 
 // Server Listener
 // ===============================================
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`)
-})
+});
