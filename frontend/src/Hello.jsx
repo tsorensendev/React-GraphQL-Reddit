@@ -28,10 +28,10 @@ const client = new ApolloClient({
 });
 
 const App = () => {
-  console.log(ApolloProvider)
+  console.log(ApolloProvider);
   return (
     <div>
-      
+      App
     </div>
   );
 };
