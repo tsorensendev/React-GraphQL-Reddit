@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Thread from 'Thread';
+import ReactTable from 'react-table';
+import 'react-table/react-table.css';
 
 class ThreadList extends Component {
   constructor(props) {
