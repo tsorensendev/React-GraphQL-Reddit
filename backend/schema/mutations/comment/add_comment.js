@@ -6,7 +6,7 @@ const addComment = {
   type: ThreadType,
     args: {
     body: { type: GraphQLString },
-    threadId: { type: GraphQLID }
+    threadId: { type: GraphQLID },
   },
   resolve(parentValue, { body, threadId }) {
     return Thread.addComment(threadId, body);
