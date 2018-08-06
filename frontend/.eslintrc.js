@@ -7,6 +7,7 @@ module.exports = {
   },
   extends: 'airbnb',
   parserOptions: {
-    ecmaVersion: 6
+    ecmaVersion: 6,
   },
+  parser: 'babel-eslint',
 };

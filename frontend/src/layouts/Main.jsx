@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import NavBar from '../components/NavBar/NavBar';
+import Navbar from '../components/Navbar/Navbar';
+import Test from '../components/Navbar/Test';
 
 class Main extends Component {
   constructor(props) {
@@ -8,9 +9,10 @@ class Main extends Component {
   }
 
   render() {
-    return(
+    return (
       <div>
-        <NavBar />
+        <Navbar />
+        <Test />
       </div>
     );
   }
