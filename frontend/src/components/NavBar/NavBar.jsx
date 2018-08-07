@@ -30,7 +30,6 @@ class Navbar extends Component {
   render() {
     const { open } = this.state;
     const { classes } = this.props;
-    console.log(open);
     return (
       <div className={classes.root}>
         <AppBar
@@ -49,8 +48,12 @@ class Navbar extends Component {
             <Typography className={classes.flex} variant="title" color="inherit" noWrap>
               Reddit Clone
             </Typography>
-            <Button color="inherit">Signup</Button>
-            <Button color="inherit">Login</Button>
+            <Button color="inherit">
+            Signup
+            </Button>
+            <Button color="inherit">
+            Login
+            </Button>
           </Toolbar>
         </AppBar>
         <Sidebar open={open} classes={classes} closeSidebar={this.closeSidebar} />
@@ -60,9 +63,7 @@ class Navbar extends Component {
 }
 
 Navbar.propTypes = {
-  classes: PropTypes.shape({
-    drawerMain: PropTypes.object,
-  }).isRequired,
+  classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(NavbarStyles, { withTheme: true })(Navbar);

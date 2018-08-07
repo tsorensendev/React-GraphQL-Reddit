@@ -10,4 +10,8 @@ module.exports = {
     ecmaVersion: 6,
   },
   parser: 'babel-eslint',
+  rules: {
+    'react/jsx-one-expression-per-line': false,
+    'react/forbid-prop-types': false,
+  }
 };

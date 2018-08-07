@@ -1,8 +1,4 @@
-import {
-  defaultFont,
-  container,
-  primaryColor,
-} from '../primary-styles';
+import { defaultFont, primaryColor, } from '../primary-styles';
 
 const MainStyles = {
   backgroundColor: primaryColor,

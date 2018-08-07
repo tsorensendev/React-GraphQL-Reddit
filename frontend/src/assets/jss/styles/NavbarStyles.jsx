@@ -1,7 +1,6 @@
 import { defaultFont, primaryColor, lightGrayColor } from '../primary-styles';
 
 const NavbarStyles = theme => ({
-  navMain: {},
   root: {
     backgroundColor: lightGrayColor,
     flexGrow: 1,

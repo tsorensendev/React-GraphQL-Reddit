@@ -12,14 +12,17 @@ import { mailFolderListItems, otherMailFolderListItems } from './tileData';
 
 
 const Sidebar = (props) => {
-  const { classes, open, theme, closeSidebar } = props;
-  console.log(theme, classes)
+  const {
+    classes,
+    open,
+    theme,
+    closeSidebar,
+  } = props;
   return (
     <Drawer
       variant="permanent"
       open={open}
-      classes={{
-        paper: classNames(classes.drawerPaper, !open && classes.drawerPaperClose) }}
+      classes={{ paper: classNames(classes.drawerPaper, !open && classes.drawerPaperClose) }}
     >
       <div className={classes.toolbar}>
         <IconButton onClick={closeSidebar}>
@@ -36,7 +39,7 @@ const Sidebar = (props) => {
 
 Sidebar.propTypes = {
   open: PropTypes.bool.isRequired,
-  theme: PropTypes.object.isRequired,
+  theme: PropTypes.shape().isRequired,
   classes: PropTypes.object.isRequired,
   closeSidebar: PropTypes.func.isRequired,
 };
