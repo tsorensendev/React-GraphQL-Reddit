@@ -1,17 +1,44 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import withTheme from '@material-ui/core/styles/withTheme';
 import Drawer from '@material-ui/core/Drawer';
+import IconButton from '@material-ui/core/IconButton';
+import Divider from '@material-ui/core/Divider';
+import List from '@material-ui/core/List';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import { mailFolderListItems, otherMailFolderListItems } from './tileData';
 
-import SidebarStyles from '../../assets/jss/styles/sidebarStyles';
 
-const Sidebar = props => {
-  const { classes, open } = props;
+const Sidebar = (props) => {
+  const { classes, open, theme, closeSidebar } = props;
+  console.log(theme, classes)
   return (
-    <Drawer open={open} className={classes.drawerMain}>
-
+    <Drawer
+      variant="permanent"
+      open={open}
+      classes={{
+        paper: classNames(classes.drawerPaper, !open && classes.drawerPaperClose) }}
+    >
+      <div className={classes.toolbar}>
+        <IconButton onClick={closeSidebar}>
+          {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+        </IconButton>
+      </div>
+      <Divider />
+      <List>{mailFolderListItems}</List>
+      <Divider />
+      <List>{otherMailFolderListItems}</List>
     </Drawer>
   );
 };
 
+Sidebar.propTypes = {
+  open: PropTypes.bool.isRequired,
+  theme: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired,
+  closeSidebar: PropTypes.func.isRequired,
+};
 
-export default withStyles(SidebarStyles)(Sidebar);
+export default withTheme()(Sidebar);

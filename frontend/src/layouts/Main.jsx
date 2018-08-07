@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Navbar from '../components/Navbar/Navbar';
-import Test from '../components/Navbar/Test';
 
 class Main extends Component {
   constructor(props) {
@@ -12,7 +11,6 @@ class Main extends Component {
     return (
       <div>
         <Navbar />
-        <Test />
       </div>
     );
   }

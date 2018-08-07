@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import classNames from 'classnames';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -28,32 +30,39 @@ class Navbar extends Component {
   render() {
     const { open } = this.state;
     const { classes } = this.props;
+    console.log(open);
     return (
       <div className={classes.root}>
-        <AppBar className={classes.navMain} position="static">
-          <Toolbar>
+        <AppBar
+          position="absolute"
+          className={classNames(classes.appBar, open && classes.appBarShift)}
+        >
+          <Toolbar disableGutters={!open}>
             <IconButton
-              className={classes.menuButton}
               color="inherit"
-              aria-label="Menu"
+              aria-label="Open drawer"
               onClick={this.openSidebar}
+              className={classNames(classes.menuButton, open && classes.hide)}
             >
               <MenuIcon />
             </IconButton>
-            <Typography
-              variant="title"
-              color="inherit"
-              className={classes.flex}
-            >
+            <Typography className={classes.flex} variant="title" color="inherit" noWrap>
               Reddit Clone
             </Typography>
+            <Button color="inherit">Signup</Button>
             <Button color="inherit">Login</Button>
           </Toolbar>
-          <Sidebar open={open} />
         </AppBar>
+        <Sidebar open={open} classes={classes} closeSidebar={this.closeSidebar} />
       </div>
     );
   }
 }
 
-export default withStyles(NavbarStyles)(Navbar);
+Navbar.propTypes = {
+  classes: PropTypes.shape({
+    drawerMain: PropTypes.object,
+  }).isRequired,
+};
+
+export default withStyles(NavbarStyles, { withTheme: true })(Navbar);
