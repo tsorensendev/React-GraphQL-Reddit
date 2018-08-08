@@ -10,6 +10,7 @@ const MongoStore = require('connect-mongo')(session);
 const expressGraphQL = require('express-graphql');
 const schema = require('./schema/schema');
 const cors = require('cors');
+require('dotenv').config();
 
 // Express Setup
 // ===============================================
@@ -17,8 +18,7 @@ const app = express();
 const PORT = process.env.PORT || 3001
 
 // Replace with your mongoLab URI
-// const MONGO_URI =
-//   "mongodb://tanner:tanner@ds135760.mlab.com:35760/auth";
+const MONGO_URI = `mongodb://${process.env.MLAB_USER}:${process.env.MLAB_PASS}@ds161485.mlab.com:61485/rdtclone`
 
 // Mongoose's built in promise library is deprecated, replace it with ES2015 Promise
 mongoose.Promise = global.Promise;
