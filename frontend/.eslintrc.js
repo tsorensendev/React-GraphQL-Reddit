@@ -12,6 +12,7 @@ module.exports = {
   parser: 'babel-eslint',
   rules: {
     'react/jsx-one-expression-per-line': false,
+    'react/jsx-filename-extension': false,
     'react/forbid-prop-types': false,
   }
 };

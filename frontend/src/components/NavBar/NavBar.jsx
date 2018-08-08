@@ -31,7 +31,6 @@ class Navbar extends Component {
     const { open } = this.state;
     const { classes } = this.props;
     return (
-      <div className={classes.root}>
         <AppBar
           position="absolute"
           className={classNames(classes.appBar, open && classes.appBarShift)}
@@ -56,8 +55,6 @@ class Navbar extends Component {
             </Button>
           </Toolbar>
         </AppBar>
-        <Sidebar open={open} classes={classes} closeSidebar={this.closeSidebar} />
-      </div>
     );
   }
 }

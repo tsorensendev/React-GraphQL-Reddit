@@ -39,7 +39,7 @@ const Sidebar = (props) => {
 
 Sidebar.propTypes = {
   open: PropTypes.bool.isRequired,
-  theme: PropTypes.shape().isRequired,
+  theme: PropTypes.object.isRequired,
   classes: PropTypes.object.isRequired,
   closeSidebar: PropTypes.func.isRequired,
 };
