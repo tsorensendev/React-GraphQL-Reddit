@@ -1,7 +1,11 @@
 const graphql = require('graphql');
-const { GraphQLObjectType, GraphQLID } = graphql;
-const UserType = require('./user_type');
+const { GraphQLObjectType, GraphQLID, GraphQLList, GraphQLNonNull } = graphql;
 const mongoose = require('mongoose');
+// Types
+const UserType = require('./user_type')
+const ThreadType = require('./thread_type');
+
+// Models
 const Thread = mongoose.model('thread');
 
 

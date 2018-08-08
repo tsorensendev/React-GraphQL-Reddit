@@ -1,3 +1,5 @@
+const graphql = require('graphql');
+const { GraphQLString } = graphql;
 const ThreadType = require('../../types/thread_type');
 const mongoose = require('mongoose');
 const Thread = mongoose.model('thread');
