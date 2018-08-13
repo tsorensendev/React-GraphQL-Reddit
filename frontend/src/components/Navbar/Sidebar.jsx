@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import withTheme from '@material-ui/core/styles/withTheme';
 import Drawer from '@material-ui/core/Drawer';
 import IconButton from '@material-ui/core/IconButton';
 import Divider from '@material-ui/core/Divider';
@@ -44,4 +43,4 @@ Sidebar.propTypes = {
   closeSidebar: PropTypes.func.isRequired,
 };
 
-export default withTheme()(Sidebar);
+export default Sidebar;

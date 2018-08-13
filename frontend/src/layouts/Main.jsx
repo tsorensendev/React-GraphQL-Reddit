@@ -45,11 +45,12 @@ class Main extends Component {
 
   render() {
     const { open } = this.state;
-    const { classes } = this.props;
+    console.log(open);
+    const { classes, theme } = this.props;
     return (
       <div className={classes.root}>
-        <Navbar />
-        <Sidebar open={open} classes={classes} closeSidebar={this.closeSidebar} />
+        <Navbar open={open} openSidebar={this.openSidebar} />
+        <Sidebar theme={theme} open={open} classes={classes} closeSidebar={this.closeSidebar} />
         <main className={classes.content}>
           <div className={classes.toolbar} />
           {this.getRoute()
@@ -68,6 +69,7 @@ class Main extends Component {
 Main.propTypes = {
   classes: PropTypes.object.isRequired,
   location: PropTypes.object.isRequired,
+  theme: PropTypes.object.isRequired,
 };
 
-export default withRouter(withStyles(NavbarStyles)(Main));
+export default withRouter(withStyles(NavbarStyles, { withTheme: true })(Main));
