@@ -14,5 +14,8 @@ module.exports = {
     'react/jsx-one-expression-per-line': false,
     'react/jsx-filename-extension': false,
     'react/forbid-prop-types': false,
-  }
+    'max-len': ['error', { code: 150 }],
+    'no-nested-ternary': 0,
+    'no-plusplus': 0,
+  },
 };

@@ -1,18 +1,32 @@
 import React, { Component } from 'react';
-import Thread from 'Thread';
-import ReactTable from 'react-table';
-import 'react-table/react-table.css';
+import Thread from './Thread';
+import threads from './threads.json';
 
 class ThreadList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
+  constructor() {
+    super();
+    this.state = {
+      dataSet: threads,
+    };
   }
 
   render() {
+    const { dataSet } = this.state;
     return (
       <div>
-        <Thread />
+        {dataSet.map(data => (
+          <Thread
+            title={data.title}
+            link={data.link}
+            sub={data.sub}
+            poster={data.poster}
+            votes={data.votes}
+            thumbnail={data.thumbnail}
+            timePosted={data.timePosted}
+            commentCount={data.commentCount}
+          />
+        ))
+      }
       </div>
     );
   }

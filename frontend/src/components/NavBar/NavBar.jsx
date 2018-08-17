@@ -27,9 +27,11 @@ const Navbar = (props) => {
         >
           <MenuIcon />
         </IconButton>
-        <Typography className={classes.flex} variant="title" color="inherit" noWrap>
-          Reddit Clone
-        </Typography>
+        <Link to="/main" className={classes.flex} style={{ textDecoration: 'none', color: 'white' }}>
+          <Typography variant="title" color="inherit" noWrap>
+            Reddit Clone
+          </Typography>
+        </Link>
         <Button color="inherit">
           <Link to="/signup" style={{ textDecoration: 'none', color: 'white' }}>
             Signup

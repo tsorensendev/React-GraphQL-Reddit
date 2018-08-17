@@ -28,22 +28,20 @@ const client = new ApolloClient({
   cache,
 });
 
-const App = () => {
-  return (
-    <ApolloProvider client={client}>
-      <Router history={hist}>
-        <Switch>
-          {indexRoutes.map(route => (
-            <Route
-              path={route.path}
-              key={route.path}
-              component={route.component}
-            />
-          ))}
-        </Switch>
-      </Router>
-    </ApolloProvider>
-  );
-};
+const App = () => (
+  <ApolloProvider client={client}>
+    <Router history={hist}>
+      <Switch>
+        {indexRoutes.map(route => (
+          <Route
+            path={route.path}
+            key={route.path}
+            component={route.component}
+          />
+        ))}
+      </Switch>
+    </Router>
+  </ApolloProvider>
+);
 
 export default App;

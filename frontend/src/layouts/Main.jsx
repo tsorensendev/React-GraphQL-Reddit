@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
-import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
+import {
+  Switch,
+  Route,
+  Redirect,
+  withRouter,
+} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Navbar from '../components/Navbar/Navbar';
@@ -10,14 +15,14 @@ import mainRoutes from '../routes/mainRoutes';
 
 const switchRoutes = (
   <Switch>
-    {mainRoutes.map((prop, key) => {
-      if (prop.redirect) {
-        return <Redirect from={prop.path} to={prop.pathTo} key={key} />;
+    {mainRoutes.map((route) => {
+      if (route.redirect) {
+        return <Redirect from={route.path} to={route.pathTo} key={route.pathTo} />;
       }
-      if (prop.collapse) {
-        return prop.views.map((prop, key) => <Route path={prop.path} component={prop.component} key={key} />);
+      if (route.collapse) {
+        return route.views.map(view => <Route path={view.path} component={view.component} key={view.path} />);
       }
-      return <Route path={prop.path} component={prop.component} key={key} />;
+      return <Route path={route.path} component={route.component} key={route.path} />;
     })}
   </Switch>
 );
@@ -45,7 +50,6 @@ class Main extends Component {
 
   render() {
     const { open } = this.state;
-    console.log(open);
     const { classes, theme } = this.props;
     return (
       <div className={classes.root}>
