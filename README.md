@@ -16,7 +16,7 @@ npm i
 npm start
 ```
 
-Backend:
+Backend(in a separate terminal):
 ```
 cd backend
 npm i
