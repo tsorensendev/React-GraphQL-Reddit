@@ -3,8 +3,8 @@ import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { graphql } from 'react-apollo';
 import _ from 'lodash';
-import mutation from '../../mutations/Login';
-import query from '../../queries/CurrentUser';
+import login from '../../mutations/Login';
+import currentUser from '../../queries/CurrentUser';
 import AuthForm from './AuthForm';
 import { withStyles } from '../../../node_modules/@material-ui/core';
 
@@ -17,11 +17,12 @@ const loginStyles = {
 class LoginForm extends Component {
   constructor(props) {
     super(props);
-    this.state = { errors: [] };
+    this.state = { errors: [], email: '', password: '', };
   }
 
   componentDidUpdate(prevProps) {
     const { data } = this.props;
+    console.log('DATA!');
     // this.props // the old, current set of props
     // nextProps // the next set of props that will be
     // in place when the component rerenders
@@ -36,7 +37,7 @@ class LoginForm extends Component {
     const { mutate } = this.props;
     mutate({
       variables: { email, password },
-      refetchQueries: [{ query }],
+      refetchQueries: [{ query: currentUser }],
     }).catch((res) => {
       const errors = res.graphQLErrors.map(error => error.message);
       this.setState({ errors });
@@ -47,7 +48,7 @@ class LoginForm extends Component {
     const { errors } = this.state;
     const { classes } = this.props;
     return (
-      <div classNames={classes.form}>
+      <div className={classes.form}>
         <h3>Login</h3>
         <AuthForm errors={errors} onSubmit={this.onSubmit} />
       </div>
@@ -68,6 +69,6 @@ LoginForm.propTypes = {
 // Lodash's flow util allows easy stacking of HOC's
 export default _.flow([
   withStyles(loginStyles),
-  graphql(query),
-  graphql(mutation),
+  graphql(currentUser),
+  graphql(login),
 ])(LoginForm);

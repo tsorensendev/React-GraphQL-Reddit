@@ -12,7 +12,7 @@ import ReportIcon from '@material-ui/icons/Report';
 import CreateIcon from '@material-ui/icons/Create';
 import BookmarksIcon from '@material-ui/icons/Bookmarks';
 
-export const mailFolderListItems = (
+const SidebarButtons = props => (
   <div>
     <ListItem button>
       <ListItemIcon>
@@ -24,7 +24,7 @@ export const mailFolderListItems = (
       <ListItemIcon>
         <BookmarksIcon />
       </ListItemIcon>
-      <ListItemText primary="Subscribed Subreddits" />
+      <ListItemText primary="Subscriptions" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
@@ -41,25 +41,4 @@ export const mailFolderListItems = (
   </div>
 );
 
-export const otherMailFolderListItems = (
-  <div>
-    <ListItem button>
-      <ListItemIcon>
-        <MailIcon />
-      </ListItemIcon>
-      <ListItemText primary="All mail" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <DeleteIcon />
-      </ListItemIcon>
-      <ListItemText primary="Trash" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <ReportIcon />
-      </ListItemIcon>
-      <ListItemText primary="Spam" />
-    </ListItem>
-  </div>
-);
+export default SidebarButtons;

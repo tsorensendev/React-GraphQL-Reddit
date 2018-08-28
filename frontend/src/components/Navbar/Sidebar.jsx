@@ -7,7 +7,8 @@ import Divider from '@material-ui/core/Divider';
 import List from '@material-ui/core/List';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import { mailFolderListItems, otherMailFolderListItems } from './tileData';
+// import { mailFolderListItems, otherMailFolderListItems } from './tileData';
+import SidebarButtons from './SidebarButtons';
 
 
 const Sidebar = (props) => {
@@ -29,9 +30,7 @@ const Sidebar = (props) => {
         </IconButton>
       </div>
       <Divider />
-      <List>{mailFolderListItems}</List>
-      <Divider />
-      <List>{otherMailFolderListItems}</List>
+      <SidebarButtons />
     </Drawer>
   );
 };

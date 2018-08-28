@@ -13,7 +13,7 @@ const newThread = {
     time: { type: GraphQLString },
   },
   resolve(parentValue, { title, body, date, time }) {
-    return (new ThreadType({ title, body, date, time })).save();
+    return (new Thread({ title, body, date, time })).save();
   },
 };
 

@@ -18,7 +18,8 @@ const app = express();
 const PORT = process.env.PORT || 3001
 
 // Replace with your mongoLab URI
-const MONGO_URI = `mongodb://${process.env.MLAB_USER}:${process.env.MLAB_PASS}@ds161485.mlab.com:61485/rdtclone`
+const MONGO_URI = 'mongodb://localhost:27017/rdtclone';
+// const MONGO_URI = `mongodb://${process.env.MLAB_USER}:${process.env.MLAB_PASS}@ds161485.mlab.com:61485/rdtclone`;
 // Mongoose's built in promise library is deprecated, replace it with ES2015 Promise
 mongoose.Promise = global.Promise;
 

@@ -13,11 +13,30 @@ const threadStyles = {
     textAlign: 'center',
     display: 'flex',
     flexDirection: 'column',
+    justifyContent: 'center',
   },
   thumbnail: {
     width: '100px',
     height: '100px',
     margin: '0 15px',
+  },
+  buttonDiv: {
+    display: 'flex',
+    fontSize: '11px',
+    color: 'rgb(100, 100, 100)',
+    flexGrow: 1,
+  },
+  posted: {
+    flexGrow: 1,
+  },
+  iconButtons: {
+    margin: '0 5px',
+    display: 'flex',
+    alignItems: 'center',
+  },
+  content: {
+    display: 'flex',
+    flexDirection: 'column',
   },
 };
 

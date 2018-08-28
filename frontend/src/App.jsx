@@ -1,15 +1,25 @@
 import React from 'react';
-import { Router, Route, Switch } from 'react-router-dom';
+import {
+  Router,
+  Route,
+  Switch,
+  Redirect,
+} from 'react-router-dom';
 import { ApolloProvider } from 'react-apollo';
-import { ApolloLink, InMemoryCache, HttpLink } from 'apollo-boost';
+import { ApolloLink, HttpLink } from 'apollo-boost';
+import { InMemoryCache } from 'apollo-cache-inmemory';
 import ApolloClient from 'apollo-client';
 import { createBrowserHistory } from 'history';
 import indexRoutes from './routes/index';
+// import allThreads from './queries/allThreads';
+// import newThread from './mutations/newThread';
+// import logout from './mutations/Logout';
 
 // Apollo Client Setup
 const hist = createBrowserHistory();
 const httpLink = new HttpLink({
-  uri: 'http://localhost:3001/graphql',
+  uri: '/graphql',
+  credentials: 'same-origin',
 });
 const middleWareLink = new ApolloLink((operation, forward) => {
   operation.setContext({
@@ -27,18 +37,25 @@ const client = new ApolloClient({
   link,
   cache,
 });
+// client.initQueryManager();
+// client.mutate({ mutation: logout }).then(res => console.log(res));
+// client.mutate({ mutation: newThread, variables: { title: 'New Title Bitch Ass', body: 'New Thread Body Bitch Ass' } })
+//   .then(() => client.query({ query: allThreads }).then(queryResult => console.log(queryResult)));
+
 
 const App = () => (
   <ApolloProvider client={client}>
     <Router history={hist}>
       <Switch>
-        {indexRoutes.map(route => (
-          <Route
-            path={route.path}
-            key={route.path}
-            component={route.component}
-          />
-        ))}
+        {indexRoutes.map((route) => {
+          return route.redirect ? <Redirect from={route.path} to={route.pathTo} key={route.pathTo} /> : (
+            <Route
+              path={route.path}
+              key={route.path}
+              component={route.component}
+            />
+          );
+        })}
       </Switch>
     </Router>
   </ApolloProvider>

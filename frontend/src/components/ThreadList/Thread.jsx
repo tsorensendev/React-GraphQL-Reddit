@@ -4,7 +4,16 @@ import { withStyles } from '@material-ui/core/styles';
 import moment from 'moment';
 
 // Icons
-import { ArrowDownward, ArrowUpward, ModeComment } from '@material-ui/icons';
+import {
+  ArrowDownward,
+  ArrowUpward,
+  ModeComment,
+  Share,
+  Bookmark,
+  Star,
+  Block,
+  Report,
+} from '@material-ui/icons';
 
 // Styles
 import threadStyles from '../../assets/jss/styles/threadStyles';
@@ -33,16 +42,28 @@ const Thread = (props) => {
         {/* Thumbnail for post, probably not going to use Avatar in the end */}
         <img src={thumbnail} alt="Post Thumbnail" />
       </div>
-      <div>
+      <div className={classes.content}>
         <h2><a href={link}>{title}</a></h2>
-        <p><small><span>{`/r/${sub}`}</span><span>{`Posted by ${poster}, ${timePosted} hours ago`}</span></small></p>
+        <p className={classes.posted}>{`/r/${sub} Posted by ${poster}, ${timePosted} hours ago`}</p>
         <div className={classes.buttonDiv}>
-          <ModeComment /><span>{commentCount === 0 ? 'Comment ' : `${commentCount} comments `}</span>
-          <icon>Share </icon>
-          <icon>Save </icon>
-          <icon>Gold </icon>
-          <icon>Hide </icon>
-          <icon>Report</icon>
+          <div className={classes.iconButtons}>
+            <ModeComment /><span>{commentCount === 0 ? 'Comment ' : `${commentCount} comments `}</span>
+          </div>
+          <div className={classes.iconButtons}>
+            <Share />Share
+          </div>
+          <div className={classes.iconButtons}>
+            <Bookmark />Save
+          </div>
+          <div className={classes.iconButtons}>
+            <Star />Gold
+          </div>
+          <div className={classes.iconButtons}>
+            <Block />Hide
+          </div>
+          <div className={classes.iconButtons}>
+            <Report />Gold
+          </div>
         </div>
       </div>
     </div>

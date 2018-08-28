@@ -24,6 +24,7 @@ class ThreadList extends Component {
             thumbnail={data.thumbnail}
             timePosted={data.timePosted}
             commentCount={data.commentCount}
+            key={data.title}
           />
         ))
       }

@@ -1,7 +1,7 @@
-import { defaultFont, primaryColor, } from '../primary-styles';
+import { defaultFont, lightGrayColor } from '../primary-styles';
 
 const MainStyles = {
-  backgroundColor: primaryColor,
+  backgroundColor: lightGrayColor,
   ...defaultFont,
 };
 

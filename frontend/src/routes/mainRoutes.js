@@ -3,9 +3,9 @@ import SignupForm from '../components/AuthPages/SignupForm';
 import LoginForm from '../components/AuthPages/LoginForm';
 
 const mainRoutes = [
-  { path: '/main', component: ThreadList },
-  { path: '/signup', component: SignupForm },
-  { path: '/login', component: LoginForm },
+  { exact: true, path: '/main', component: ThreadList },
+  { path: '/main/signup', component: SignupForm },
+  { path: '/main/login', component: LoginForm },
 ];
 
 export default mainRoutes;
